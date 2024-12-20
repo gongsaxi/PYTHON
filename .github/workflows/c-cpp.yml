@@ -53,8 +53,8 @@ jobs:
       run: cd lede && ./scripts/feeds install -a
     - name: load config
       run: |
-         [ -e files ] && mv files lede/files
          [ -e $CONFIG_FILE ] && mv $CONFIG_FILE lede/.config
+         
     - name: Download package
        id: package
        run: |
