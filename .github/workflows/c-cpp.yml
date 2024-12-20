@@ -12,7 +12,7 @@ env:
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
-  Feeds: feeds.conf.default
+  Feeds_path: feeds.conf.default
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
@@ -38,7 +38,8 @@ jobs:
         sudo apt install -y python3-pyelftools python3-setuptools qemu-utils rsync scons squashfs-tools subversion swig texinfo 
         sudo apt install -y uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
     - name: load feeds
-    - uses: $Feeds
+    - uses: $Feeds_path
+    
     - name: Update feeds
       run: cd lede && ./scripts/feeds update -a
 
