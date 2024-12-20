@@ -61,7 +61,9 @@ jobs:
       run: |
          cd lede
          make defconfig
-         make download -j8
+         #make download -j8
+         make tools/install V=s -j$(grep processor /proc/cpuinfo | wc -l)
+         make toolchain/install V=s -j$(grep processor /proc/cpuinfo | wc -l)
          find dl -size -1024c -exec ls -l {} \;
          find dl -size -1024c -exec rm -f {} \;
          
