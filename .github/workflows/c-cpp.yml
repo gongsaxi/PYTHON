@@ -39,7 +39,9 @@ jobs:
         sudo apt install -y uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
         
     - name: load feeds
-      uses: $Feeds_path
+      run: |
+         [ -e files ] && mv files lede/files
+         [ -e $Feeds_path ] && mv $Feeds_path lede/feeds.conf.default
     
     - name: Update feeds
       run: cd lede && ./scripts/feeds update -a
