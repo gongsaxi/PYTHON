@@ -37,6 +37,7 @@ jobs:
         sudo apt install -y libssl-dev libtool llvm lrzsz genisoimage msmtp ninja-build p7zip p7zip-full patch pkgconf python3 
         sudo apt install -y python3-pyelftools python3-setuptools qemu-utils rsync scons squashfs-tools subversion swig texinfo 
         sudo apt install -y uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
+        
     - name: load feeds
     - uses: $Feeds_path
     
