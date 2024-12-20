@@ -65,5 +65,5 @@ jobs:
         # find dl -size -1024c -exec ls -l {} \;
         # find dl -size -1024c -exec rm -f {} \;
          
-    - name: make ipk
-        run: make package/luci-app-wol/compile V=s
+   # - name: make ipk
+     #   run: make package/luci-app-wol/compile V=s
