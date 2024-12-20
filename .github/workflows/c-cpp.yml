@@ -12,6 +12,7 @@ env:
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
+  Feeds: feeds.conf.default
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
@@ -22,8 +23,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    #- name: Checkout
-    #- uses: actions/checkout@v4
+    - name: Checkout
+    - uses: actions/checkout@main
     
     - name: yilai
       run: |
@@ -36,7 +37,8 @@ jobs:
         sudo apt install -y libssl-dev libtool llvm lrzsz genisoimage msmtp ninja-build p7zip p7zip-full patch pkgconf python3 
         sudo apt install -y python3-pyelftools python3-setuptools qemu-utils rsync scons squashfs-tools subversion swig texinfo 
         sudo apt install -y uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
-  
+    - name: load feeds
+    - uses: $Feeds
     - name: Update feeds
       run: cd lede && ./scripts/feeds update -a
 
