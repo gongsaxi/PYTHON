@@ -51,13 +51,12 @@ jobs:
 
     - name: Install feeds
       run: cd lede && ./scripts/feeds install -a
-
     - name: load config
       run: |
          [ -e files ] && mv files lede/files
          [ -e $CONFIG_FILE ] && mv $CONFIG_FILE lede/.config
 
-      - name: Download package
+    - name: Download package
        id: package
        run: |
          cd lede
@@ -66,7 +65,5 @@ jobs:
          find dl -size -1024c -exec ls -l {} \;
          find dl -size -1024c -exec rm -f {} \;
 
-      - name: make ipk
+    - name: make ipk
         run: make package/luci-app-wol/compile V=s
-
-      
