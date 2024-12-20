@@ -39,7 +39,7 @@ jobs:
          [ -e $CONFIG_FILE ] && mv $CONFIG_FILE lede/.config
          
     - name: Download package
-        id: package
+        #id: package
         run: |
           cd lede
           make defconfig
