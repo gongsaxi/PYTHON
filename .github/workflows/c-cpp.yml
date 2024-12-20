@@ -55,7 +55,6 @@ jobs:
       run: |
          [ -e files ] && mv files lede/files
          [ -e $CONFIG_FILE ] && mv $CONFIG_FILE lede/.config
-
     - name: Download package
        id: package
        run: |
@@ -64,6 +63,5 @@ jobs:
          make download -j8
          find dl -size -1024c -exec ls -l {} \;
          find dl -size -1024c -exec rm -f {} \;
-
     - name: make ipk
         run: make package/luci-app-wol/compile V=s
